@@ -1,6 +1,7 @@
 from utils.read_json import read_json
-# from utils.article_scrapper import pressgazette,thehindubusinessline
+from utils.to_csv import write_csv
 import utils.article_scrapper
+
 import re
 # import os 
 
@@ -15,8 +16,11 @@ def main():
             scrapper_function = getattr(utils.article_scrapper,domain,None)
             
             if scrapper_function is not None and callable(scrapper_function):
-                result = scrapper_function()
-                print(result)
+                result = scrapper_function(url)
+                write_csv(result)
+                # print(type(result))
+                # print(result)
+                # print("------")
                 
             else:
                 print(f"No scrapper function for {domain} defined")

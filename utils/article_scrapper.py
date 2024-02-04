@@ -1,12 +1,12 @@
 from bs4 import BeautifulSoup
 import requests
 
-def pressgazette():
+def pressgazette(url):
     """
 
     """
     paragraph_content = []
-    url ="https://pressgazette.co.uk/media-audience-and-business-data/media_metrics/most-popular-websites-news-world-monthly-2/"
+    # url ="https://pressgazette.co.uk/media-audience-and-business-data/media_metrics/most-popular-websites-news-world-monthly-2/"
     headers = {'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/121.0.0.0 Safari/537.36'}
     response = requests.get(url,headers=headers)
     html_text = response.text
@@ -17,12 +17,12 @@ def pressgazette():
             paragraph_content.append(paragraph.text.replace("\n",""))
     return {'Headline': headline , 'Text': paragraph_content }
     
-def thehindubusinessline():
+def thehindubusinessline(url):
     """
     
     """
     paragraph_content = []
-    url = "https://www.thehindubusinessline.com/multimedia/audio/what-is-the-economics-behind-marathons/article67803923.ece"
+    # url = "https://www.thehindubusinessline.com/multimedia/audio/what-is-the-economics-behind-marathons/article67803923.ece"
     headers = {'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/121.0.0.0 Safari/537.36'}
     response = requests.get(url,headers=headers)
     html_text = response.text
