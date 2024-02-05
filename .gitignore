@@ -1,3 +1,5 @@
 assignment3/
 log_file.log
 output/
+*__pycache__/
+output/
