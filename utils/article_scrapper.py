@@ -25,7 +25,7 @@ def pressgazette(url) -> dict:
         paragraphs = soup.find_all('p')
         for paragraph in paragraphs:
                 paragraph_content.append(paragraph.text.replace("\n",""))
-        return {'Headline': headline , 'Text': paragraph_content }
+        return {'Headline': headline , 'Text': paragraph_content,'Article-Url': url}
     
     except Exception as  e:
         logging.info(f"Unable to fetch data for pressgazette {e}")
@@ -57,7 +57,7 @@ def thehindubusinessline(url) -> dict:
         paragraphs = soup.find_all('p')
         for paragraph in paragraphs:
             paragraph_content.append(paragraph.text.replace("\xa0", ""))  
-        return {'Headline': headline ,'Text': paragraph_content}
+        return {'Headline': headline ,'Text': paragraph_content,'Article-Url':url }
     
     except Exception as e:
         logging.info(f"Unable to fetch data for thehindubusinessline: {e}")
