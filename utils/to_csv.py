@@ -2,6 +2,14 @@ import csv
 import os 
 
 def write_csv(result):
+    """
+    Creates an output folder and dumps the dictionary data into a csv file 
+    
+    Parameters
+    Result: Dictionary
+            Containing scraped data to store in csv
+            
+    """
     cwd = os.getcwd()
     folder_name  = 'output'
     folder_path = os.path.join(cwd,folder_name)

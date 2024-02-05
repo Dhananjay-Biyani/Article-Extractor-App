@@ -1,15 +1,18 @@
 import json 
+# import glob
+import os 
 
-def read_json():
+def read_json() -> list:
     
     """
     Read parameters from config file 
     
     Return 
-    media_urls: list
-                      list containing links of media articles
+    urls: list
+                list containing links of media articles
     """
-    with open(r'D:\Python assignments\Assignment_3\Article-Extractor-App\input\config.json') as fp:
+    config_file_path = os.path.join(os.getcwd(),"input\config.json")
+    with open(config_file_path) as fp:
         configs = json.load(fp)
         urls = configs['media_url']
     return urls 
