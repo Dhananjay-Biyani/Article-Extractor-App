@@ -20,7 +20,7 @@ def main():
                     result = scrapper_function(url)
                     write_csv(result)
     except Exception as e:
-                logging.info(f"No scrapper function for {domain} defined")
+                logging.info(f"No scrapper function for {domain} defined: {e}")
         
 if __name__ == '__main__':
     main()
