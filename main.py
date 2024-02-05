@@ -5,7 +5,7 @@ import re
 import logging
 
 def main():
-    logging.basicConfig(filename='log_file.log', format = " %(levelname)s - %(asctime)s - %(messages)s",level=logging.INFO)
+    logging.basicConfig(filename='log_file.log', format = "%(levelname)s - %(asctime)s - %(message)s",level=logging.INFO)
     pattern = re.compile(r'(https://)?(www\.)?([a-zA-Z0-9]+)')
     media_urls = read_json()
     try:
