@@ -5,7 +5,7 @@ import re
 import logging
 
 def main():
-    logging.basicConfig(filename='log_file.log', format = "%(levelname)s - %(asctime)s - %(message)s",level=logging.INFO)
+    logging.basicConfig(filename='log_file.log', format = "%(levelname)s - %(asctime)s - %(message)s",level=logging.DEBUG)
     pattern = re.compile(r'(https://)?(www\.)?([a-zA-Z0-9]+)')
     media_urls = read_json()
     try:
@@ -16,10 +16,12 @@ def main():
                 scrapper_function = getattr(utils.article_scrapper,domain,None)
                 
                 if scrapper_function is not None and callable(scrapper_function):
-                    result = scrapper_function(url)
-                    write_text(result)
+                    headline , paragraph_content , url = scrapper_function(url)
+                    write_text(headline , paragraph_content , url)
+            logging.info(f"Data scraped successfully for {url}")
+            
     except Exception as e:
-                logging.info(f"No scrapper function for {domain} defined: {e}")
+                logging.error(f"No scrapper function for {domain} defined: {e}")
         
 if __name__ == '__main__':
     main()

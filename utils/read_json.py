@@ -9,7 +9,7 @@ def read_json() -> list:
     
     Return 
     urls: list
-                list containing links of media articles
+            list containing links of media articles
     """
     
     logging.basicConfig(filename='log_file.log' ,level=logging.INFO, format = " %(levelname)s - %(asctime)s - %(messages)s")
